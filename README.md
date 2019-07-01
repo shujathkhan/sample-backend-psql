@@ -10,7 +10,7 @@
 ## Testing the APIs
 
 ### POST to register new user
-	`curl -X POST \
+	curl -X POST \
 	  http://localhost:3000/api/v1/users \
 	  -H 'Accept: */*' \
 	  -H 'Cache-Control: no-cache' \
@@ -21,7 +21,7 @@
 		"password":"mypass123" ,
 		"email":"shujathlive@gamil.com"
 
-	}'`
+	}'
 
 
 ### POST to login
