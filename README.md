@@ -5,6 +5,8 @@
 - Clone the project, `git clone https://github.com/shujathkhan/fyle-backend-psql.git`
 - Navigate into root directory, `cd fyle-backend-psql`
 - Run `npm install`
+- Assuming psql-client and Postgresql are already installed and setup.
+- Import the DB to psql, `sudo -u postgres psql indian_banks < indian_banks.sql`
 - Run `npm run dev-start`  or to run heroku locally, `heroku local web`
 
 ## Testing the APIs
