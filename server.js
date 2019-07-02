@@ -20,5 +20,7 @@ app.get('/api/v1/getbranchdata/:bankname/:city/:limit/:offset', bankdetails.getB
 app.post('/api/v1/users', User.create);
 app.post('/api/v1/users/login',User.login);
 app.delete('/api/v1/users/me', Auth.verifyToken, User.delete);
-app.listen(3000)
-console.log('app running on port ', 3000);
+var server = app.listen(process.env.PORT || 3000, function () {
+  var port = server.address().port;
+  console.log("Express is working on port " + port);
+});
