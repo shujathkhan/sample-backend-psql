@@ -13,7 +13,7 @@
 
 ### POST to register new user
 	curl -X POST \
-	  http://localhost:3000/api/v1/users \
+	  http://mighty-plateau-67077.herokuapp.com/api/v1/users \
 	  -H 'Accept: */*' \
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
@@ -28,7 +28,7 @@
 
 ### POST to login
 	curl -X POST \
-	  http://localhost:3000/api/v1/users/login \
+	  http://mighty-plateau-67077.herokuapp.com/api/v1/users/login \
 	  -H 'Accept: */*' \
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
@@ -43,7 +43,7 @@
 ### GET Get Bank detail using by providing IFSC code, LIMIT and OFFSET respectively
 
 	curl -X GET \
-	  http://localhost:3000/api/v1/getbankdata/ABHY0065008/5/0 \
+	  http://mighty-plateau-67077.herokuapp.com/api/v1/getbankdata/ABHY0065008/5/0 \
 	  -H 'Accept: */*' \
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
@@ -53,7 +53,7 @@
 ### GET Get Branch data using by providing Bank name, city, LIMIT and OFFSET respectively
 
 	curl -X GET \
-	  http://localhost:3000/api/v1/getbranchdata/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/MUMBAI/10/0 \
+	  http://mighty-plateau-67077.herokuapp.com/api/v1/getbranchdata/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/MUMBAI/10/0 \
 	  -H 'Accept: */*' \
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
