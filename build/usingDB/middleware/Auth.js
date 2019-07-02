@@ -1,19 +1,20 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
 
-var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
+var _jsonwebtoken = require('jsonwebtoken');
 
-var _db = _interopRequireDefault(require("../db"));
+var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _db = require('../db');
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+var _db2 = _interopRequireDefault(_db);
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var Auth = {
   /**
@@ -24,10 +25,8 @@ var Auth = {
    * @returns {object|void} response object 
    */
   verifyToken: function () {
-    var _verifyToken = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee(req, res, next) {
-      var token, decoded, text, _ref, rows;
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res, next) {
+      var token, decoded, text, _ref2, rows;
 
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -40,62 +39,56 @@ var Auth = {
                 break;
               }
 
-              return _context.abrupt("return", res.status(400).send({
-                'message': 'Token is not provided'
-              }));
+              return _context.abrupt('return', res.status(400).send({ 'message': 'Token is not provided' }));
 
             case 3:
               _context.prev = 3;
               _context.next = 6;
-              return _jsonwebtoken["default"].verify(token, process.env.SECRET);
+              return _jsonwebtoken2.default.verify(token, process.env.SECRET);
 
             case 6:
               decoded = _context.sent;
               text = 'SELECT * FROM users WHERE id = $1';
               _context.next = 10;
-              return _db["default"].query(text, [decoded.userId]);
+              return _db2.default.query(text, [decoded.userId]);
 
             case 10:
-              _ref = _context.sent;
-              rows = _ref.rows;
+              _ref2 = _context.sent;
+              rows = _ref2.rows;
 
               if (rows[0]) {
                 _context.next = 14;
                 break;
               }
 
-              return _context.abrupt("return", res.status(400).send({
-                'message': 'The token you provided is invalid'
-              }));
+              return _context.abrupt('return', res.status(400).send({ 'message': 'The token you provided is invalid' }));
 
             case 14:
-              req.user = {
-                id: decoded.userId
-              };
+              req.user = { id: decoded.userId };
               next();
               _context.next = 21;
               break;
 
             case 18:
               _context.prev = 18;
-              _context.t0 = _context["catch"](3);
-              return _context.abrupt("return", res.status(400).send(_context.t0));
+              _context.t0 = _context['catch'](3);
+              return _context.abrupt('return', res.status(400).send(_context.t0));
 
             case 21:
-            case "end":
+            case 'end':
               return _context.stop();
           }
         }
-      }, _callee, null, [[3, 18]]);
+      }, _callee, this, [[3, 18]]);
     }));
 
     function verifyToken(_x, _x2, _x3) {
-      return _verifyToken.apply(this, arguments);
+      return _ref.apply(this, arguments);
     }
 
     return verifyToken;
   }()
 };
-var _default = Auth;
-exports["default"] = _default;
+
+exports.default = Auth;
 //# sourceMappingURL=Auth.js.map

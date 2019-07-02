@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-start": "babel-watch server.js",
+    "dev-start": "babel-node server.js",
     "build-babel": "babel -d ./build ./src -s",
     "heroku-prebuild": "rm -rf node_modules",
     "heroku-postbuild": "npm install && npm run build-babel"

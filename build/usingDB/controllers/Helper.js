@@ -1,15 +1,18 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
 
-var _bcrypt = _interopRequireDefault(require("bcrypt"));
+var _bcrypt = require('bcrypt');
 
-var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
+var _bcrypt2 = _interopRequireDefault(_bcrypt);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _jsonwebtoken = require('jsonwebtoken');
+
+var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Helper = {
   /**
@@ -18,7 +21,7 @@ var Helper = {
    * @returns {string} returns hashed password
    */
   hashPassword: function hashPassword(password) {
-    return _bcrypt["default"].hashSync(password, _bcrypt["default"].genSaltSync(8));
+    return _bcrypt2.default.hashSync(password, _bcrypt2.default.genSaltSync(8));
   },
 
   /**
@@ -28,7 +31,7 @@ var Helper = {
    * @returns {Boolean} return True or False
    */
   comparePassword: function comparePassword(hashPassword, password) {
-    return _bcrypt["default"].compareSync(password, hashPassword);
+    return _bcrypt2.default.compareSync(password, hashPassword);
   },
 
   /**
@@ -37,7 +40,8 @@ var Helper = {
    * @returns {Boolean} True or False
    */
   isValidEmail: function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
+    return (/\S+@\S+\.\S+/.test(email)
+    );
   },
 
   /**
@@ -46,15 +50,12 @@ var Helper = {
    * @returns {string} token
    */
   generateToken: function generateToken(id) {
-    var token = _jsonwebtoken["default"].sign({
+    var token = _jsonwebtoken2.default.sign({
       userId: id
-    }, process.env.SECRET, {
-      expiresIn: '5d'
-    });
-
+    }, process.env.SECRET, { expiresIn: '5d' });
     return token;
   }
 };
-var _default = Helper;
-exports["default"] = _default;
+
+exports.default = Helper;
 //# sourceMappingURL=Helper.js.map

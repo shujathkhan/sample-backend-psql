@@ -1,22 +1,24 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
 
-var _pg = require("pg");
+var _pg = require('pg');
 
-var _dotenv = _interopRequireDefault(require("dotenv"));
+var _dotenv = require('dotenv');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _dotenv2 = _interopRequireDefault(_dotenv);
 
-_dotenv["default"].config();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv2.default.config();
 
 var pool = new _pg.Pool({
   connectionString: process.env.DATABASE_URL
 });
-var _default = {
+
+exports.default = {
   /**
    * DB Query
    * @param {object} req
@@ -27,11 +29,10 @@ var _default = {
     return new Promise(function (resolve, reject) {
       pool.query(text, params).then(function (res) {
         resolve(res);
-      })["catch"](function (err) {
+      }).catch(function (err) {
         reject(err);
       });
     });
   }
 };
-exports["default"] = _default;
 //# sourceMappingURL=index.js.map
