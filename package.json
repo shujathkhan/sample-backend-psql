@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "8.16.0",
-    "npm":"6.4.1"
+    "npm": "6.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,12 +13,10 @@
     "dev-start": "babel-watch server.js",
     "heroku-prebuild": "rm -rf node_modules",
     "heroku-postbuild": "npm install && npm run build"
-
   },
   "author": "shujaatullah khan",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
@@ -34,6 +32,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^7.0.0"
