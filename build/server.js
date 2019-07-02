@@ -1,20 +1,33 @@
-'use strict';
+"use strict";
 
-var _express = require('express');
+var _express = _interopRequireDefault(require("express"));
 
-var _express2 = _interopRequireDefault(_express);
+var _dotenv = _interopRequireDefault(require("dotenv"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+require("babel-polyfill");
 
-// import bankbranch from './src/models/bankbranch';
+var _bankdetailscontroller = _interopRequireDefault(require("./src/usingDB/controllers/bankdetailscontroller"));
 
-var app = (0, _express2.default)();
+var _Users = _interopRequireDefault(require("./src/usingDB/controllers/Users"));
 
-app.use(_express2.default.json());
-// app.get('/api/v1/bankbranch/:ifsc', bankbranch.getOne);
+var _Auth = _interopRequireDefault(require("./src/usingDB/middleware/Auth"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var app = (0, _express["default"])();
+
+_dotenv["default"].config();
+
+app.use(_express["default"].json());
 app.get('/', function (req, res) {
-  return res.status(200).send({ 'message': 'YAY! Congratulations! Your first endpoint is working' });
+  return res.status(200).send({
+    'message': 'YAY! Congratulations! Your first endpoint is working'
+  });
 });
-
+app.get('/api/v1/getbankdata/:ifsc/:limit/:offset', _bankdetailscontroller["default"].getBankDetail, _Auth["default"].verifyToken);
+app.get('/api/v1/getbranchdata/:bankname/:city/:limit/:offset', _bankdetailscontroller["default"].getBranchDetail, _Auth["default"].verifyToken);
+app.post('/api/v1/users', _Users["default"].create);
+app.post('/api/v1/users/login', _Users["default"].login);
+app["delete"]('/api/v1/users/me', _Auth["default"].verifyToken, _Users["default"]["delete"]);
 app.listen(3000);
 console.log('app running on port ', 3000);
