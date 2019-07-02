@@ -48,7 +48,7 @@
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
 	  -H 'Content-Type: application/json' \
-	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNGMzMDNlZC05MWYyLTQ2N2EtOWQwMC1kNDQ2Y2ZkMWFmNzkiLCJpYXQiOjE1NjIwMTMyMzYsImV4cCI6MTU2MjM1ODgzNn0.HxWi2eqgB8ik84hYZNdidLhMrSZbcPGukxcy8dJHpyM'
+	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ZDFmMDJlOS1kZjBhLTQxMTUtYTRkNS1mMDgxOWYyMTkzYzEiLCJpYXQiOjE1NjIwNzI2MDMsImV4cCI6MTU2MjUwNDYwM30.OwTmGoKmLKiDzggAzjT9gtZP7AQo9hcV6wH7KfOMpqY'
 
 ### GET Get Branch data using by providing Bank name, city, LIMIT and OFFSET respectively
 
@@ -58,6 +58,6 @@
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
 	  -H 'Content-Type: application/json' \
-	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNGMzMDNlZC05MWYyLTQ2N2EtOWQwMC1kNDQ2Y2ZkMWFmNzkiLCJpYXQiOjE1NjIwMTMyMzYsImV4cCI6MTU2MjM1ODgzNn0.HxWi2eqgB8ik84hYZNdidLhMrSZbcPGukxcy8dJHpyM'
+	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ZDFmMDJlOS1kZjBhLTQxMTUtYTRkNS1mMDgxOWYyMTkzYzEiLCJpYXQiOjE1NjIwNzI2MDMsImV4cCI6MTU2MjUwNDYwM30.OwTmGoKmLKiDzggAzjT9gtZP7AQo9hcV6wH7KfOMpqY'
 
 Time taken to complete : 2.5 hours
