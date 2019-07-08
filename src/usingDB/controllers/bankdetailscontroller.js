@@ -20,13 +20,13 @@ const bankdetails = {
 
 
   async getBankDetail(req, res) {
-    console.log(req);
+    
     
     const text = 'SELECT * FROM bank_branches WHERE ifsc = $1 LIMIT $2 OFFSET $3';
     try {
       
       const { rows } = await db.query(text, [req.params.ifsc, req.params.limit, req.params.offset]);
-      console.log(req);
+      console.log(req.user);
       if (!rows[0]) {
         
         myData.Status = "failure";
@@ -60,7 +60,7 @@ const bankdetails = {
 
     try {
       const { rows } = await db.query(text, [req.params.bankname, req.params.city, req.params.limit, req.params.offset]);
-      console.log(text);
+      console.log(req.user);
       if (!rows[0]) {
         myData.Status = "failure";
         myData.MessageDetails.code = 0;
