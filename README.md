@@ -21,7 +21,7 @@
 	  -d '{ 
 
 		"password":"mypass123" ,
-		"email":"shujathlive@gamil.com"
+		"email":"shujathlive123@gmail.com"
 
 	}'
 
@@ -36,7 +36,7 @@
 	  -d '{ 
 
 		"password":"mypass123" ,
-		"email":"shujathlive@gamil.com"
+		"email":"shujathlive123@gmail.com"
 
 	}'
 
@@ -48,7 +48,7 @@
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
 	  -H 'Content-Type: application/json' \
-	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ZDFmMDJlOS1kZjBhLTQxMTUtYTRkNS1mMDgxOWYyMTkzYzEiLCJpYXQiOjE1NjIwNzI2MDMsImV4cCI6MTU2MjUwNDYwM30.OwTmGoKmLKiDzggAzjT9gtZP7AQo9hcV6wH7KfOMpqY'
+	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmZjI2MDYyOC0zZDZmLTRmNDctYTQ5OS1mMTA0MWE5OWI5MmEiLCJpYXQiOjE1NjI1OTQ1ODEsImV4cCI6MTU2MzAyNjU4MX0.SUU-tpawofBehBtBc4pVYUoSkGNBcLls0813lBjpfuY'
 
 ### GET Get Branch data using by providing Bank name, city, LIMIT and OFFSET respectively
 
@@ -58,6 +58,6 @@
 	  -H 'Cache-Control: no-cache' \
 	  -H 'Connection: keep-alive' \
 	  -H 'Content-Type: application/json' \
-	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ZDFmMDJlOS1kZjBhLTQxMTUtYTRkNS1mMDgxOWYyMTkzYzEiLCJpYXQiOjE1NjIwNzI2MDMsImV4cCI6MTU2MjUwNDYwM30.OwTmGoKmLKiDzggAzjT9gtZP7AQo9hcV6wH7KfOMpqY'
+	  -H 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmZjI2MDYyOC0zZDZmLTRmNDctYTQ5OS1mMTA0MWE5OWI5MmEiLCJpYXQiOjE1NjI1OTQ1ODEsImV4cCI6MTU2MzAyNjU4MX0.SUU-tpawofBehBtBc4pVYUoSkGNBcLls0813lBjpfuY'
 
 Time taken to complete : 2.5 hours
