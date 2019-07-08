@@ -23,27 +23,32 @@ const bankdetails = {
     console.log(req);
     
     const text = 'SELECT * FROM bank_branches WHERE ifsc = $1 LIMIT $2 OFFSET $3';
+    const text2 = 'SELECT * FROM users WHERE id = $1 LIMIT 1';
     try {
       
       const { rows } = await db.query(text, [req.params.ifsc, req.params.limit, req.params.offset]);
-      console.log(req);
-      if (!rows[0]) {
-        
-        myData.Status = "failure";
-        myData.RequestTime = new Date()
-        myData.MessageDetails.code = 0;
-        myData.MessageDetails.Message = "Bank details not found";
-        myData.PayLoad = [];
-        
-        return res.status(404).send(myData);
-      }
-      myData.Status = "success";
-      myData.MessageDetails.code = 1;
-      myData.RequestTime = new Date()
-      myData.MessageDetails.Message = "fetched";
-      myData.PayLoad = rows;
+      const { rows1 } = await db.query(text2, [req.user.id]);
+      // console.log(req);
+      if(!rows1[0]){
+          if (!rows[0]) {
+            
+            myData.Status = "failure";
+            myData.RequestTime = new Date()
+            myData.MessageDetails.code = 0;
+            myData.MessageDetails.Message = "Bank details not found";
+            myData.PayLoad = [];
+            
+            return res.status(404).send(myData);
+          }else{
+          myData.Status = "success";
+          myData.MessageDetails.code = 1;
+          myData.RequestTime = new Date()
+          myData.MessageDetails.Message = "fetched";
+          myData.PayLoad = rows;
 
-      return res.status(200).send(myData);
+          return res.status(200).send(myData);
+        }
+      }      
     } catch (error) {
       
       myData.Status = "error";
@@ -55,27 +60,33 @@ const bankdetails = {
     }
   },
   async getBranchDetail(req, res) {
-    const text = 'SELECT * FROM bank_branches WHERE bank_name = $1 AND city = $2 LIMIT $3 OFFSET $4';
+    
+    const text1 = 'SELECT * FROM bank_branches WHERE bank_name = $1 AND city = $2 LIMIT $3 OFFSET $4 ';
+    const text2 = 'SELECT * FROM users WHERE id = $1 LIMIT 1';
 
 
     try {
-      const { rows } = await db.query(text, [req.params.bankname, req.params.city, req.params.limit, req.params.offset]);
-      console.log(text);
-      if (!rows[0]) {
-        myData.Status = "failure";
-        myData.MessageDetails.code = 0;
-        myData.RequestTime = new Date()
-        
-        myData.MessageDetails.Message = "Bank details not found";
-        myData.PayLoad = [];
-        return res.status(404).send(myData);
+      const { rows } = await db.query(text1, [req.params.bankname, req.params.city, req.params.limit, req.params.offset]);
+      const { rows1 } = await db.query(text2, [req.user.id]);
+      // console.log(text);
+      if(!rows1[0]){
+          if (!rows[0]) {
+            myData.Status = "failure";
+            myData.MessageDetails.code = 0;
+            myData.RequestTime = new Date()
+            
+            myData.MessageDetails.Message = "Bank details not found";
+            myData.PayLoad = [];
+            return res.status(404).send(myData);
+          }else{
+          myData.Status = "success";
+          myData.RequestTime = new Date()
+          myData.MessageDetails.code = 1;
+          myData.MessageDetails.Message = "fetched";
+          myData.PayLoad = rows;
+          return res.status(200).send(myData);
+        }
       }
-      myData.Status = "success";
-      myData.RequestTime = new Date()
-      myData.MessageDetails.code = 1;
-      myData.MessageDetails.Message = "fetched";
-      myData.PayLoad = rows;
-      return res.status(200).send(myData);
     } catch (error) {
       
       myData.Status = "error";
