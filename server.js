@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-  return res.status(200).send({'message': 'YAY! Congratulations! Your first endpoint is working'});
+  return res.status(200).send({'message': 'YAY! Congratulations! Your endpoint is working'});
 })
 app.get('/api/v1/getbankdata/:ifsc/:limit/:offset', Auth.verifyToken,bankdetails.getBankDetail);
 app.get('/api/v1/getbranchdata/:bankname/:city/:limit/:offset',Auth.verifyToken, bankdetails.getBranchDetail);
