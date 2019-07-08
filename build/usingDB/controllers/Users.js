@@ -155,21 +155,21 @@ var User = {
 
             case 14:
               token = _Helper2.default.generateToken(rows[0].id);
+              // console.log(token)
 
-              console.log(token);
               return _context2.abrupt('return', res.status(200).send({ token: token }));
 
-            case 19:
-              _context2.prev = 19;
+            case 18:
+              _context2.prev = 18;
               _context2.t0 = _context2['catch'](5);
               return _context2.abrupt('return', res.status(400).send(_context2.t0));
 
-            case 22:
+            case 21:
             case 'end':
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[5, 19]]);
+      }, _callee2, this, [[5, 18]]);
     }));
 
     function login(_x3, _x4) {
