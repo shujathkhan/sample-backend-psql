@@ -16,6 +16,7 @@ const Auth = {
     }
     try {
       const decoded = await jwt.verify(token, process.env.SECRET);
+      console.log(decoded)
       const text = 'SELECT * FROM users WHERE id = $1';
       const { rows } = await db.query(text, [decoded.userId]);
       if(!rows[0]) {
