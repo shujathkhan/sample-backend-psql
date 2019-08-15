@@ -1,4 +1,4 @@
-# fyle-backend-psql
+# Sample-backend-psql
 
 ## Setup
 
